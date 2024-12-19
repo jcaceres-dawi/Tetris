@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetris Personalizado</title>
+    <style>
+      canvas {
+        display: block;
+        margin: 0 auto;
+        background: #000;
+      }
+      #puntuacion {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      #miniTetris {
+        position: absolute;
+        top: 55px;
+        right: 400px;
+      }
+
+      #dificultad {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        z-index: 1000;
+      }
+
+      #dificultad button {
+        margin: 10px;
+        padding: 10px;
+        font-size: 24px;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      #dificultad button:hover {
+        transform: scale(1.1);
+      }
+
+      #dificultad h2 {
+        font-size: 36px;
+      }
+
+      #facil {
+        background-color: rgb(12, 12, 172);
+      }
+
+      #normal {
+        background-color: rgb(172, 172, 6);
+      }
+
+      #dificil {
+        background-color: rgb(175, 7, 7);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- He añadido un botón para seleccionar la dificultad -->
+    <div id="dificultad">
+      <h2>Selecciona la dificultad</h2>
+      <button onclick="establecerDificultad('facil')" id="facil">Fácil</button>
+      <button onclick="establecerDificultad('normal')" id="normal">
+        Normal
+      </button>
+      <button onclick="establecerDificultad('dificil')" id="dificil">
+        Difícil
+      </button>
+    </div>
+
+    <!-- He añadido un div para mostrar la puntuación -->
+    <div id="puntuacion">Puntuación: 0</div>
+    <canvas id="tetris" width="300" height="600"></canvas>
+    <!-- He añadido un canvas para mostrar la siguiente pieza -->
+    <canvas id="miniTetris" width="150" height="150"></canvas>
+    <script src="tetris.js"></script>
+  </body>
+</html>
